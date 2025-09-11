@@ -1,0 +1,40 @@
+// h1 start
+@mixin fontH1($fsH1,$fwH1) {
+     font-size: $fsH1;
+     font-weight: $fwH1;
+}
+// h2 start 
+@mixin fontH2($fsH2,$fwH2) {
+     font-size: $fsH2;
+     font-weight: $fwH2;
+}
+// h3 start 
+@mixin fontH3($fsH3,$fwH3) {
+     font-size: $fsH3;
+     font-weight: $fwH3;
+}
+// h4 start 
+@mixin fontH4($fsH4,$fwH4) {
+     font-size: $fsH4;
+     font-weight: $fwH4;
+}
+// h4 start 
+@mixin fontH5($fsH5,$fwH5) {
+     font-size: $fsH5;
+     font-weight: $fwH5;
+}
+// p start 
+@mixin fontP($fsP,$fwP) {
+     font-size: $fsP;
+     font-weight: $fwP;
+}
+// button start 
+@mixin fontBtn($fsBtn,$fwBtn) {
+     font-size: $fsBtn;
+     font-weight: $fwBtn;
+}
+// a start 
+@mixin fontA($fsA,$fwA) {
+     font-size: $fsA;
+     font-weight: $fwA;
+}
