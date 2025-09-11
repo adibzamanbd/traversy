@@ -1,2 +1,161 @@
 @import "../mixin/font";
 @import "../variables/variable";
+
+// banner
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $hero_bg_color;
+  padding: 4vw 12%;
+  width: 100%;
+
+  @media (max-width: $laptop) {
+    padding: 3vw 6%;
+  }
+  @media (max-width: $tablet) {
+    padding: 5vw 5%;
+  }
+  @media (max-width: $mobile) {
+    padding: 6vw 4%;
+  }
+
+  .banner_main_cont {
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+
+    @media (max-width: $tablet) {
+      flex-direction: column;
+      gap: 4vw;
+    }
+
+    // text
+    .banner_text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 60%;
+      gap: 2vw;
+
+      @media (max-width: $laptop) {
+        width: 65%;
+      }
+      @media (max-width: $tablet) {
+        width: 90%;
+        align-items: center;
+        text-align: center;
+      }
+
+      h1 {
+        @include fontH1(60px, 600);
+        line-height: 60px;
+        color: $primary_color;
+
+        @media (max-width: $laptop) {
+          @include fontH1(40px, 600);
+          line-height: 40px;
+        }
+        @media (max-width: $tablet) {
+          @include fontH1(36px, 600);
+          line-height: 40px;
+        }
+        @media (max-width: $mobile) {
+          @include fontH1(28px, 600);
+          line-height: 30px;
+        }
+      }
+
+      p {
+        @include fontP(15px, 400);
+        color: $gray_color;
+        padding-right: 40px;
+
+        @media (max-width: $tablet) {
+          @include fontP(14px, 400);
+          padding-right: 0;
+        }
+        @media (max-width: $mobile) {
+          @include fontP(13px, 400);
+        }
+      }
+
+      button {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 12px 20px;
+        background-color: $primary_color;
+        border: none;
+        border-radius: 50px;
+        @include fontBtn(16px, 500);
+        color: $secondary_color;
+        margin-top: 0.5vw;
+        width: fit-content;
+        position: relative;
+        overflow: hidden;
+        transition: 0.3s linear;
+
+        &:hover {
+          color: $primary_color;
+          transform: scale(1.05);
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background-color: $secondary_color;
+          border-radius: 3rem;
+          transform: translate(-100%, 0) rotate(10deg);
+          transform-origin: top left;
+          transition: 0.2s transform ease-out;
+          z-index: -1;
+        }
+
+        &:hover::after {
+          transform: translate(0, 0);
+        }
+
+        @media (max-width: $laptop) {
+          padding: 9px 15px;
+          @include fontBtn(14px, 500);
+        }
+        @media (max-width: $tablet) {
+          padding: 10px 18px;
+          @include fontBtn(15px, 500);
+        }
+      }
+    }
+
+    // image
+    .banner_img {
+      width: 50%;
+      position: relative;
+      overflow: hidden;
+      height: fit-content;
+      transition: 0.3s linear;
+
+      @media (max-width: $laptop) {
+        width: 45%;
+      }
+      @media (max-width: $tablet) {
+        width: 80%;
+      }
+      @media (max-width: $mobile) {
+        width: 100%;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        transition: 0.6s linear;
+      }
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+}
