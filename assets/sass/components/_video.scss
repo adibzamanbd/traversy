@@ -1,2 +1,46 @@
 @import "../mixin/font";
 @import "../variables/variable";
+
+// video section
+.video {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  background-color: $white;
+  padding: 0 5% 5%;
+  width: 100%;
+
+  .video_main_cont {
+    position: relative;
+    transition: 0.3s ease-out;
+
+    img {
+      width: 100%;
+      cursor: pointer;
+    }
+
+    .video_play_btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 6vw;
+      height: 6vw;
+      border-radius: 50%;
+      background-color: $green_color;
+      color: $primary_color;
+      cursor: pointer;
+      @include fontA(2.8vw, 600);
+      transition: 0.2s ease-in-out;
+    }
+
+    &:hover .video_play_btn {
+      background-color: $primary_color;
+      color: $green_color;
+    }
+  }
+}
