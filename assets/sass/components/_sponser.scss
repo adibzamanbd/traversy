@@ -1,2 +1,69 @@
 @import "../mixin/font";
 @import "../variables/variable";
+
+// sponsor
+.sponser {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $white;
+  padding: 4vw 12%;
+  width: 100%;
+
+  @media (max-width: $laptop) {
+    padding: 3vw 6%;
+  }
+  @media (max-width: $tablet) {
+    padding: 5vw 5%;
+  }
+  @media (max-width: $mobile) {
+    padding: 6vw 4%;
+  }
+
+  .sponser_main_cont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+
+    @media (max-width: $tablet) {
+      gap: 4vw;
+    }
+
+    svg {
+      width: 90%;
+      padding: 10px;
+      border-radius: 25px;
+      cursor: pointer;
+      height: auto;
+
+      path {
+        fill: $primary_color;
+        transition: fill 0.3s linear;
+      }
+
+      &:hover {
+        background-color: $primary_color;
+        animation: pulse 1s infinite;
+
+        path {
+          fill: $secondary_color;
+        }
+      }
+    }
+  }
+}
+
+// pulse animation
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
