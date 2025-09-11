@@ -1,2 +1,316 @@
 @import "../mixin/font";
 @import "../variables/variable";
+
+// footer start
+.footer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: column;
+  background-color: $white;
+  gap: 6vw;
+  padding: 4vw 12%;
+  padding-bottom: 5%;
+  width: 100%;
+  background-color: $primary_color;
+  @media (max-width: $laptop) {
+    padding: 5vw 6%;
+  }
+  @media (max-width: $tablet) {
+    padding: 6vw 5%;
+  }
+  @media (max-width: $mobile) {
+    padding: 7vw 4%;
+  }
+  //footer main container start
+  .footer_main_container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    gap: 2vw;
+    align-items: center;
+    @media (max-width: $desktop) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10vw;
+    }
+    @media (max-width: $mid_tablet) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10vw;
+    }
+    @media (max-width: $mobile) {
+      grid-template-columns: repeat(1, 1fr);
+      gap: 10vw;
+    }
+    //Newsletter start
+    .footer_newsletter {
+      display: flex;
+      flex-direction: column;
+      gap: 1vw;
+      align-items: flex-start;
+
+      @media (max-width: $mobile) {
+        align-items: center;
+      }
+      h3 {
+        @include fontH3(21px, 600);
+        color: $secondary_color;
+      }
+      .newsletter_box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        width: fit-content;
+        height: fit-content;
+        input {
+          background-color: $blue_color;
+          padding: 10px 20px;
+          border: none;
+          border-bottom-left-radius: 20px;
+          border-top-left-radius: 20px;
+          outline: none;
+          border-top: 2px solid $primary_color;
+          border-left: 2px solid $primary_color;
+          border-bottom: 2px solid $primary_color;
+          color: $white;
+          transition: all 0.3s linear;
+
+          &:focus {
+            border-top: 2px solid $yellow_color;
+            border-left: 2px solid $yellow_color;
+            border-bottom: 2px solid $yellow_color;
+            transition: all 0.3s linear;
+          }
+          &:focus ~ label > button {
+            border-bottom: 2px solid $yellow_color;
+            border-top: 2px solid $yellow_color;
+            border-right: 2px solid $yellow_color;
+            border-bottom-right-radius: 20px;
+            border-top-right-radius: 20px;
+            transition: all 0.3s linear;
+          }
+          &::placeholder {
+            color: $secondary_color;
+            @include fontA(14px, 400);
+            transition: all 0.3s linear;
+          }
+        }
+
+        button {
+          width: 40px;
+          height: 39px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-bottom-right-radius: 20px;
+          border-top-right-radius: 20px;
+          background-color: $yellow_color;
+          border-bottom: 2px solid $primary_color;
+          border-top: 2px solid $primary_color;
+          border-right: 2px solid $primary_color;
+          border-left: none;
+          color: $primary_color;
+          transition: all 0.5s linear;
+          @include fontA(16px, 500);
+        }
+      }
+      .social_links {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.5vw;
+        a {
+          background-color: $blue_color;
+          padding: 10px 12px;
+          border-radius: 100%;
+          color: $yellow_color;
+          @include fontA(18px, 500);
+
+          transition: all 0.3s linear;
+          overflow: hidden;
+          &:hover {
+            transform: scale(1.05);
+            color: $blue_color;
+          }
+
+          &::after {
+            background-color: $yellow_color;
+            border-radius: 3rem;
+            content: "";
+            display: block;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            transform: translate(-100%, 0) rotate(10deg);
+            transform-origin: top left;
+            transition: 0.4s transform ease-out;
+            z-index: -1;
+          }
+          &:hover::after {
+            transform: translate(0, 0);
+          }
+        }
+      }
+    }
+    // Address start
+    .footer_info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1vw;
+      @media (max-width: $mobile) {
+        align-items: center;
+      }
+      p {
+        @include fontP(18px, 600);
+        color: $secondary_color;
+        cursor: pointer;
+        text-align: left;
+
+        @media (max-width: $mobile) {
+          text-align: center;
+        }
+        strong {
+          @include fontP(14px, 200);
+          cursor: context-menu;
+          opacity: 0.8;
+        }
+        a {
+          text-decoration: none;
+          color: $secondary_color;
+          transition: all 0.1s linear;
+          &:hover {
+            color: $yellow_color;
+            opacity: 1;
+          }
+        }
+      }
+    }
+    // Pages start
+    .footer_pages {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1vw;
+      width: 100%;
+      @media (max-width: $mobile) {
+        align-items: center;
+      }
+      h3 {
+        @include fontH3(20px, 600);
+        color: $secondary_color;
+      }
+      ul {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5vw;
+        @media (max-width: $mobile) {
+          align-items: center;
+        }
+        li {
+          list-style: none;
+          a {
+            text-decoration: none;
+            color: $secondary_color;
+            opacity: 0.8;
+            @include fontA(15px, 400);
+            transition: all 0.1s linear;
+            &:hover {
+              color: $yellow_color;
+              opacity: 1;
+            }
+            @media (max-width: $mobile) {
+              @include fontA(12px, 200);
+            }
+          }
+        }
+      }
+    }
+    // Services start
+    .footer_service {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1vw;
+      @media (max-width: $mobile) {
+        align-items: center;
+      }
+      h3 {
+        @include fontH3(20px, 600);
+        color: $secondary_color;
+      }
+      ul {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5vw;
+        @media (max-width: $mobile) {
+          align-items: center;
+        }
+        li {
+          list-style: none;
+          a {
+            text-decoration: none;
+            color: $secondary_color;
+            opacity: 0.8;
+            @include fontA(15px, 200);
+            transition: all 0.1s linear;
+            &:hover {
+              color: $yellow_color;
+              opacity: 1;
+            }
+            @media (max-width: $mobile) {
+              @include fontA(12px, 200);
+            }
+          }
+        }
+      }
+    }
+  }
+  // footer bottom start
+  .footer_bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 0.5vw;
+    border-top: 1px solid $gray_color;
+    padding-top: 3vw;
+    @media (max-width: $mid_laptop) {
+      flex-direction: column;
+    }
+    @media (max-width: $mobile) {
+      gap: 6vw;
+    }
+    p {
+      color: $secondary_color;
+      opacity: 0.5;
+      cursor: default;
+      text-align: center;
+    }
+    // footer bottom links start
+    .footer_bottom_links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1vw;
+      @media (max-width: $mobile) {
+        flex-direction: column;
+      }
+      a {
+        text-decoration: none;
+        color: $secondary_color;
+        transition: all 0.1s linear;
+        opacity: 0.5;
+        &:hover {
+          color: $yellow_color;
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
